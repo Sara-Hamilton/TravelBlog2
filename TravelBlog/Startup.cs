@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using TravelBlog.Models;
+
 
 namespace TravelBlog
 {
@@ -19,7 +23,7 @@ namespace TravelBlog
         {
             var builder = new ConfigurationBuilder()
               .SetBasePath(env.ContentRootPath)
-              .AddEnvironmentVariables();
+                .AddJsonFile("appsettings.json"); //this line replaces .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -27,6 +31,10 @@ namespace TravelBlog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddEntityFrameworkMySql()
+            .AddDbContext<TravelBlogDbContext>(options =>
+                                      options
+                                           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +56,7 @@ namespace TravelBlog
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Something went wrong!");
             });
         }
     }
