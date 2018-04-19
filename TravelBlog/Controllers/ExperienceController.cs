@@ -18,7 +18,6 @@ namespace TravelBlog.Controllers
 
         public IActionResult Index()
         {
-           
             List<Experience> model = db.Experiences.ToList();
             return View(model);
 
