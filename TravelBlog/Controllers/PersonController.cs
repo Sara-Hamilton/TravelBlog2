@@ -13,11 +13,24 @@ namespace TravelBlog.Controllers
     public class PersonController : Controller
     {
         private TravelBlogDbContext db = new TravelBlogDbContext();
-        // GET: /<controller>/
+
         public IActionResult Index()
         {
             List<Person> model = db.Persons.ToList();
+            return View(model);
+        }
+
+        public IActionResult Create() 
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Person person)
+        {
+            db.Persons.Add(person);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

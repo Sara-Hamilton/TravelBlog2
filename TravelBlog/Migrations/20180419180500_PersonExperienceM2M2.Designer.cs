@@ -8,9 +8,10 @@ using TravelBlog.Models;
 namespace TravelBlog.Migrations
 {
     [DbContext(typeof(TravelBlogDbContext))]
-    partial class TravelBlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180419180500_PersonExperienceM2M2")]
+    partial class PersonExperienceM2M2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -22,8 +23,6 @@ namespace TravelBlog.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int>("LocationId");
-
                     b.Property<string>("Name");
 
                     b.Property<string>("Title");
@@ -31,8 +30,6 @@ namespace TravelBlog.Migrations
                     b.Property<DateTime>("TravelDate");
 
                     b.HasKey("ExperienceId");
-
-                    b.HasIndex("LocationId");
 
                     b.ToTable("Experiences");
                 });
@@ -44,9 +41,13 @@ namespace TravelBlog.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<int?>("ExperienceId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("LocationId");
+
+                    b.HasIndex("ExperienceId");
 
                     b.ToTable("Locations");
                 });
@@ -83,12 +84,11 @@ namespace TravelBlog.Migrations
                     b.ToTable("PersonExperience");
                 });
 
-            modelBuilder.Entity("TravelBlog.Models.Experience", b =>
+            modelBuilder.Entity("TravelBlog.Models.Location", b =>
                 {
-                    b.HasOne("TravelBlog.Models.Location", "Location")
-                        .WithMany("Experiences")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("TravelBlog.Models.Experience")
+                        .WithMany("Locations")
+                        .HasForeignKey("ExperienceId");
                 });
 
             modelBuilder.Entity("TravelBlog.Models.PersonExperience", b =>

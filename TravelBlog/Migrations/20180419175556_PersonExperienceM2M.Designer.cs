@@ -8,9 +8,10 @@ using TravelBlog.Models;
 namespace TravelBlog.Migrations
 {
     [DbContext(typeof(TravelBlogDbContext))]
-    partial class TravelBlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180419175556_PersonExperienceM2M")]
+    partial class PersonExperienceM2M
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -22,9 +23,9 @@ namespace TravelBlog.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int>("LocationId");
-
                     b.Property<string>("Name");
+
+                    b.Property<int?>("PersonId");
 
                     b.Property<string>("Title");
 
@@ -32,7 +33,7 @@ namespace TravelBlog.Migrations
 
                     b.HasKey("ExperienceId");
 
-                    b.HasIndex("LocationId");
+                    b.HasIndex("PersonId");
 
                     b.ToTable("Experiences");
                 });
@@ -44,9 +45,13 @@ namespace TravelBlog.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<int?>("ExperienceId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("LocationId");
+
+                    b.HasIndex("ExperienceId");
 
                     b.ToTable("Locations");
                 });
@@ -65,41 +70,18 @@ namespace TravelBlog.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("TravelBlog.Models.PersonExperience", b =>
-                {
-                    b.Property<int>("PersonExperienceId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("ExperiencesExperienceId");
-
-                    b.Property<int?>("PersonsPersonId");
-
-                    b.HasKey("PersonExperienceId");
-
-                    b.HasIndex("ExperiencesExperienceId");
-
-                    b.HasIndex("PersonsPersonId");
-
-                    b.ToTable("PersonExperience");
-                });
-
             modelBuilder.Entity("TravelBlog.Models.Experience", b =>
                 {
-                    b.HasOne("TravelBlog.Models.Location", "Location")
+                    b.HasOne("TravelBlog.Models.Person")
                         .WithMany("Experiences")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PersonId");
                 });
 
-            modelBuilder.Entity("TravelBlog.Models.PersonExperience", b =>
+            modelBuilder.Entity("TravelBlog.Models.Location", b =>
                 {
-                    b.HasOne("TravelBlog.Models.Experience", "Experiences")
-                        .WithMany("PersonExperiences")
-                        .HasForeignKey("ExperiencesExperienceId");
-
-                    b.HasOne("TravelBlog.Models.Person", "Persons")
-                        .WithMany("PersonExperiences")
-                        .HasForeignKey("PersonsPersonId");
+                    b.HasOne("TravelBlog.Models.Experience")
+                        .WithMany("Locations")
+                        .HasForeignKey("ExperienceId");
                 });
         }
     }

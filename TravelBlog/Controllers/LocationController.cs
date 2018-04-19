@@ -20,12 +20,6 @@ namespace TravelBlog.Controllers
         {
 
             var model = db.Locations.ToList();
-            Location test = new Location();
-            test.Description = "test";
-            test.Name = "test";
-            //List<Location> model = new List<Location>();
-            //model.Add(test);
-
             return View(model);
         }
         public IActionResult Details(int id)

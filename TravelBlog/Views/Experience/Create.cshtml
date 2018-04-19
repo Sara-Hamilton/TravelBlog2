@@ -18,6 +18,10 @@
         @Html.TextBoxFor(model => model.Title)
           @Html.LabelFor(model => model.TravelDate)
         @Html.TextBoxFor(model => model.TravelDate)
+
+        @Html.LabelFor(model => model.Location)
+        @Html.DropDownList("LocationId")
+        
         <input type="submit" value="Add" />
     }
     <p>@Html.ActionLink("Back to list", "Index")</p>

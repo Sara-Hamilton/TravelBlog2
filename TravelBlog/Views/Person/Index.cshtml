@@ -1,1 +1,17 @@
-﻿<h1>test</h1>
+﻿@model IEnumerable<TravelBlog.Models.Person>
+
+<h4>@Html.DisplayNameFor(model => model.Name)</h4>
+<ul>
+    @foreach(var listLocation in Model)
+    {
+        <li>
+            @Html.DisplayFor(modelLocation => listLocation.Name) | @Html.DisplayFor(modelLocation => listLocation.Description)
+
+       </li>
+    
+    }
+</ul>
+<p>@Html.ActionLink("Add new item", "Create")</p>
+
+<h3>test</h3>
+

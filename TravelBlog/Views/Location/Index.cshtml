@@ -5,7 +5,7 @@
     @foreach(var listLocation in Model)
     {
         <li>
-            @Html.DisplayFor(modelLocation => listLocation.Description) |
+            @Html.DisplayFor(modelLocation => listLocation.Name) | @Html.DisplayFor(modelLocation => listLocation.Description)
 
        </li>
     

@@ -29,6 +29,7 @@ namespace TravelBlog.Controllers
         }
         public IActionResult Create()
         {
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Name");
             return View();
         }
 

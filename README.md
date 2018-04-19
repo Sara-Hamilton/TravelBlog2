@@ -1,4 +1,4 @@
-# Travel Blog
+﻿# Travel Blog
 
 ##### A travel blog built with Visual Studio MVC and C#.  04/19/18
 
@@ -52,10 +52,10 @@ This is an Epicodus practice project for week 1 of the .NET course.  Its purpose
 
 * _Start the Apache and MySql Servers in MAMP_
 
-   move into the directory
-   ```
-   $ cd TravelBlog/TravelBlog
-   ```
+ move into the directory
+ ```
+ $ cd TravelBlog/TravelBlog
+ ```
 
 *  _Setup the database_
 

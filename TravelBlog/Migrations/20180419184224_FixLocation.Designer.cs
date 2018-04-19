@@ -8,9 +8,10 @@ using TravelBlog.Models;
 namespace TravelBlog.Migrations
 {
     [DbContext(typeof(TravelBlogDbContext))]
-    partial class TravelBlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180419184224_FixLocation")]
+    partial class FixLocation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -22,7 +23,7 @@ namespace TravelBlog.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int>("LocationId");
+                    b.Property<int?>("LocationId");
 
                     b.Property<string>("Name");
 
@@ -87,8 +88,7 @@ namespace TravelBlog.Migrations
                 {
                     b.HasOne("TravelBlog.Models.Location", "Location")
                         .WithMany("Experiences")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("LocationId");
                 });
 
             modelBuilder.Entity("TravelBlog.Models.PersonExperience", b =>
