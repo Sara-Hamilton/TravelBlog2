@@ -10,7 +10,7 @@ namespace TravelBlog.Models
             
         }
         public DbSet<Location> Locations { get; set; }
-        public DbSet<Experience> Experiences { get; set; }
+        public virtual DbSet<Experience> Experiences { get; set; }
         public DbSet<Person> Persons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

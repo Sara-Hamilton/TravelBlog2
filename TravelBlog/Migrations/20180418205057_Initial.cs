@@ -22,6 +22,7 @@ namespace TravelBlog.Migrations
                     table.PrimaryKey("PK_Locations", x => x.LocationId);
                 });
 
+
             migrationBuilder.CreateTable(
                 name: "Persons",
                 columns: table => new
