@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<TravelBlog.Models.Person>
 
+@{
+    ViewData["Title"] = "Person - Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 <h4>@Html.DisplayNameFor(model => model.Name)</h4>
 <ul>
     @foreach(var listLocation in Model)
@@ -13,5 +18,4 @@
 </ul>
 <p>@Html.ActionLink("Add new item", "Create")</p>
 
-<h3>test</h3>
 

@@ -11,6 +11,7 @@ namespace TravelBlog.Models
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Person> Persons { get; set; }
+        public DbSet<PersonExperience> PersonExperiences { get; set; }
 
         public TravelBlogDbContext()
         {

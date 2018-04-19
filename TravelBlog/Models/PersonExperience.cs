@@ -14,7 +14,9 @@ namespace TravelBlog.Models
 
         [Key]
         public int PersonExperienceId { get; set; }
-        public virtual Experience Experiences { get; set; }
-        public virtual Person Persons { get; set; }
+        public int PersonId { get; set; }
+        public int ExperienceId { get; set; }
+        public virtual Experience Experience { get; set; }
+        public virtual Person Person { get; set; }
     }
 }
