@@ -5,7 +5,7 @@
 ## By Andy Grossberg, Hamza Naeem, Sara Hamilton, Cameron Anderson, and Kayla Ondracek
 
 # Description
-This is an Epicodus practice project for week 1 of the .NET course.  Its purpose is to display understanding of Visual Studio MVC and Migrations.  
+This is an Epicodus practice project for week 1 of the .NET course.  Its purpose is to display understanding of Visual Studio MVC, ORM, and Migrations.  
 
 ## Functionality
 ### User Stories
@@ -52,7 +52,7 @@ This is an Epicodus practice project for week 1 of the .NET course.  Its purpose
 
 * _Start the Apache and MySql Servers in MAMP_
 
- move into the directory
+ * _Move into the directory_
  ```
  $ cd TravelBlog/TravelBlog
  ```
