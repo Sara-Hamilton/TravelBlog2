@@ -54,18 +54,18 @@ This is an Epicodus practice project for week 1 of the .NET course.  Its purpose
 
  * _Move into the directory_
  ```
- cd TravelBlog/TravelBlog
+ $ cd TravelBlog/TravelBlog
  ```
 
 *  _Setup the database_
 
   ```
-  dotnet ef database update
+  $ dotnet ef database update
   ```
 *  _Run the program_
   ```
-  dotnet restore
-  dotnet run
+  $ dotnet restore
+  $ dotnet run
   ```
 
 
