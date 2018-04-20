@@ -54,7 +54,7 @@ This is an Epicodus practice project for week 1 of the .NET course.  Its purpose
 
  * _Move into the directory_
  ```
- $ cd TravelBlog/TravelBlog
+ cd TravelBlog/TravelBlog
  ```
 
 *  _Setup the database_
