@@ -6,6 +6,7 @@
 
 # Description
 This is an Epicodus practice project for week 1 of the .NET course.  Its purpose is to display understanding of Visual Studio MVC, ORM, and Migrations.  
+This version was started by Andy Grossberg and Hamza Naeem on day one and finished by Sara Hamilton and Cameron Anderson on day two.
 
 ## Functionality
 ### User Stories
